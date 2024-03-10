@@ -134,12 +134,22 @@ static char* stralloc_require(const char* str, size_t len)
     return p;
 }
 
+/*char *itoa(int num, char *str)
+{
+        if(str == NULL)
+        {
+                return NULL;
+        }
+        sprintf(str, "%d", num);
+        return str;
+}*/
+
 static void itoa_unterminated(int val, char* buffer, int bufsiz)
 {
     char digits[11];
 
-    itoa(val, digits, 10);
-    
+    //itoa(val, digits, 10);
+    snprintf(digits,10,"%d", val);
     const int ndigits = (int)strlen(digits);
     if (ndigits > bufsiz) {
         failed("Overflow");

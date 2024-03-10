@@ -8,7 +8,7 @@
 
 #include "HIDKeyRepeater.h"
 #include "USBHIDKeys.h"
-#include "MonotonicClock.h"
+#include "../MonotonicClock.h"
 
 
 enum {

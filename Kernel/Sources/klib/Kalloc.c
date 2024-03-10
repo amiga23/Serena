@@ -6,7 +6,7 @@
 //  Copyright © 2023 Dietmar Planitzer. All rights reserved.
 //
 
-#include "kalloc.h"
+#include "Kalloc.h"
 #include "Allocator.h"
 #include <dispatcher/Lock.h>
 #include "Bytes.h"

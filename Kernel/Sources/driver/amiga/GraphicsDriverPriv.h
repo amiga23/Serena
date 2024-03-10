@@ -13,7 +13,7 @@
 #include <dispatcher/Lock.h>
 #include <dispatcher/Semaphore.h>
 #include <hal/Platform.h>
-#include "InterruptController.h"
+#include "../InterruptController.h"
 #include "MousePainter.h"
 
 

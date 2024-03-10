@@ -1,0 +1,49 @@
+# --------------------------------------------------------------------------
+# Builds:
+#	libtool
+#	keymap
+#
+# and puts them inside the build/tools folder.
+#
+
+
+# --------------------------------------------------------------------------
+# Common Directories
+#
+
+TOOLS_DIR := ../build/tools
+
+
+# --------------------------------------------------------------------------
+# Includes
+#
+
+include ../common.mk
+
+
+# --------------------------------------------------------------------------
+# Build rules
+#
+
+.SUFFIXES:
+.PHONY: clean
+
+
+default: all
+
+all: $(TOOLS_DIR) $(TOOLS_DIR)/libtool $(TOOLS_DIR)/keymap $(TOOLS_DIR)/makerom
+
+$(TOOLS_DIR):
+	$(call mkdir_if_needed,$(TOOLS_DIR))
+
+$(TOOLS_DIR)/libtool: libtool.c
+	gcc -DCRT_SECURE_NO_WARNINGS -DCRT_NONSTDC_NO_WARNINGS libtool.c -o"$(TOOLS_DIR)/libtool"
+
+$(TOOLS_DIR)/keymap: keymap.c
+	gcc keymap.c -o"$(TOOLS_DIR)/keymap"
+
+$(TOOLS_DIR)/makerom: makerom.c
+	gcc makerom.c -o"$(TOOLS_DIR)/makerom"
+
+clean:
+	$(call rm_if_exists,$(TOOLS_DIR))
